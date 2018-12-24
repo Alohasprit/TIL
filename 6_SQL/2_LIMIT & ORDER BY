@@ -1,0 +1,23 @@
+1. LIMIT:
+   - 불러온 데이터 표기 row 숫자를 지정함
+   - 보통 Statement 제일 마지막에 명령함
+   
+   ex. 
+    SELECT id, account_id, total_amount_usd
+    FROM orders
+    LIMIT 50;
+   
+ 2. ORDER BY:
+    - 불러온 데이터의 컬럼별 sorting 조건(내림/오름) 차순 조건을 지정할 수 있음
+    - default 조건은 ascending(오름차순)으로 되어 있으나, 내림차순(Descending)으로 조건 설명을 위해서는 DESC 명력어를 추가함
+    - sorting 조건 컬럼이 1개 이상일 경우, ','로 sorting 컬럼명 + DESC 여부를 표기하면 됨
+    - sorting 조건은 sorting 컬럼명의 순서로 조건이 설정됨
+    
+    
+    ex.
+      SELECT id, account_id, total_amount_usd
+      FROM orders
+      ORDER BY account_id, total_amount_usd DESC
+      LIMIT 100;
+      
+      
