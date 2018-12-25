@@ -1,0 +1,25 @@
+WHERE : 리턴받는 데이터 값의 필터조건을 설정하는 명령어
+
+1. 주요 특징:
+   - 숫자형 값의 경우 필터를 걸 1)컬럼명과 2)>, >=, <, <=, =, != 와 같은 조건 부호, 그리고 3)조건 숫자 값을 표기
+   - 단, 문자형의 값의 경우 필터를 걸 1)컬러명과 2) =, != 와 같은 조건 부호. 그리고 3)조건 문자 값을 표기하는데..
+   - 여기서 표기하는 문자 값은 ''(Single Quote)으로 감싸줘야 하며, 대.소문자 구분 및 띄워쓰기 구분이 필요하다
+   
+   
+2. 예시
+  [숫자형 값의 WHERE 조건]
+  SELECT name, web_site, address, age
+  FROM info
+  WHERE age <= 20
+  ORDER BY age DESC
+  LIMIT 10;
+  
+  [문자형 값의 WHERE 조건]
+  SELECT name, web_site, address, age
+  FROM info
+  WHERE name != 'Hoyoun Son'n 
+  #문자형 WHERE 조건 값의 경우 ''(따옴표)로 값을 감싸주고 대.소문자 구분 및 띄워쓰기 구분이 필요함.
+  ORDER BY age DESC
+  LIMIT 20;
+  
+  
