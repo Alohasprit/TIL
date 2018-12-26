@@ -1,0 +1,49 @@
+WHERE 명령어(Statement)에서 조건 절(Clause)를 연결 또는 논리적 combination을 만들어 내는 operator
+
+1. LIKE:
+   - 주로 WHERE 조건에서 비슷한 문구나 숫자가 포함된 값을 필터링 조건으로 주는 operator
+   - %와 함께 주로 쓰여지며, %는 모두 all을 의미한다.
+   
+   ex. 
+    1) WHERE name LIKE '%abc%'
+       : name 컬럼의 값 중에서 abc 문자가 포함된 값만 필터
+    2) WHERE name LIKE 'A%'
+       : name 컬럼의 값 중에서 값의 첫 글자가 대문자 A로 시작하는 값만 필터
+    3) WHERE name LIKE '%c'
+       : name 컬럼의 값 중에서 값의 마지막 글자가 소문자 c로 끝나는 값만 필터
+
+2. IN:
+    -  주로 WHERE 조건에서 특정 문구(정확히 일치하는)나 숫자가 포함된 값을 필터링 조건으로 주는 operator
+    -  조건의 여러개 일 경우, LIKE operator와 달리 관호안에 () 조건 값을 넣을 수 있음
+    
+    ex.
+    1) WHERE name IN ('James', 'Kyle','Sonny')
+       : name 컬럼 값 중에서, 'James', 'Kyle','Sonny' 값만 필터
+       
+       
+ 3. NOT:
+    - LIKE/IN operator와 함께 해당 operator의 부정 의미를 더해 줌
+    
+    ex.
+    1) WHERE name NOT IN ('James', 'Kyle','Sonny')
+       : name 컬럼 값 중에서, 'James', 'Kyle','Sonny' 값을 제외하고 필터
+       
+       
+ 4. AND/BETWEEN:
+     -  WHERE Statement 내에서 Clause별 and 조건 역할을 하며, AND 조건은 clause 단위(조건 컬럼) 단위로 작성해야 함
+     -  단, 동일한 컬럼에 숫자형 range 조건이 걸리는 경우 AND 컬럼명 > 0 BETWEEN <20 으로 작성 할 수 있음
+    
+    ex.
+    1) WHERE name IN ('James', 'Kyle','Sonny') AND age >= 20
+       : name 컬럼 값 중에서, 'James', 'Kyle','Sonny' 고객 중 나이가 20세 이상인 고객만 필터
+       
+    2) WHERE name IN ('James', 'Kyle','Sonny') AND age >= 20 BETWEEN <=50
+       : name 컬럼 값 중에서, 'James', 'Kyle','Sonny' 고객 중 나이가 20세 이상, 50세 이하인 고객
+       
+  5. OR:
+     -  WHERE Statement 내에서 Clause별 OR 조건 역할을 하며, OR 조건은 clause 단위(조건 컬럼) 단위로 작성해야 함
+ 
+    ex.
+    1) WHERE name IN ('James', 'Kyle','Sonny') OR age >= 20
+       : name 컬럼 값 중에서, 'James', 'Kyle','Sonny' 고객 또는 나이가 20세 이상인 고객만 필터
+       
