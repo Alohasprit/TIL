@@ -1,0 +1,6 @@
+1. AS: 기존에 존재하는 컬럼 값의 조합으로 새로운 컬럼을 만드는 명령어
+
+2. 예시:
+  SELECT id, account_id, (revenu/sales)*100 AS ARPU, data
+  FROM orders
+  LIMIT 10;
