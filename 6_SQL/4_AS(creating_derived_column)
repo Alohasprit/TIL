@@ -15,4 +15,5 @@
   FROM account a1
   JOIN orders o2
   ON account.id = orders.account_id
+  WHERE a1.sex = 'Male'
   LIMIT 10;
