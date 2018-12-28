@@ -1,6 +1,18 @@
-1. AS: 기존에 존재하는 컬럼 값의 조합으로 새로운 컬럼을 만드는 명령어
+1. AS: 
+  - 기존에 존재하는 컬럼 값의 조합으로 새로운 컬럼을 만드는 명령어
+  - 컬럼이나 테이블 이름을 축약하고자 할때
 
 2. 예시:
   SELECT id, account_id, (revenu/sales)*100 AS ARPU, data
   FROM orders
+  LIMIT 10;
+
+
+3. 또 다른 사용법:
+  - AS를 생략하고 SELECT / FROM(JOIN) 등 명령어의 컬럼명 및 테이블 명 뒤에 축약할 이름을 이어서 써도 됨
+  ex.
+  SELECT a1.name a, o2.sales b
+  FROM account a1
+  JOIN orders o2
+  ON account.id = orders.account_id
   LIMIT 10;
