@@ -1,0 +1,17 @@
+1. LEFT, RIGHT, OUTTER JOIN
+  - JOIN statement는 일반적으로 INNER JOIN을 의미하며 참조하는 두 테이블에서 공통되는 키 값을 기준으로 값을 불러온다.
+  - 이와 다르게 LEFT JOIN은 FROM 테이블에 있는 모든 키 값을 기준으로 모든 값을 불러오며,
+  - RIGHT JOIN은 JOIN 테이블의 키 값을 기준으로 모든 값을 불러온다.
+  - INNER JOIN과 달리 LEFT/RIGHT JOIN은 NULL 값을 포함될 수 있다.
+  - OUTTER JOIN은 FROM JOIN 테이블 모든(합집합) 키를 불러오고, 모든 키 값에 해댱되는 값을 불러온다.
+  - OUTTER JOIN 또한 이러한 이유로 NULL 값을 포함 할 수 있다.
+  
+  
+2. ex
+SELECT a.*, s.*
+FROM account a
+LEFT JOIN sales s
+ON a.id = s.account_id
+WHERE s.amount BETWEEN 1000 AND 20000
+ORDER BY s.amount DESC
+LIMIT 200;
