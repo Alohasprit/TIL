@@ -1,0 +1,20 @@
+1. GROUP BY 
+  - aggregation 명령어로 특정한 컬럼의 유니크 값을 기준으로 정렬하는 명령어 임.
+  - WHERE와 ODER BY 명령어 사이에 쓰인다.
+
+2. ex.
+SELECT a.name, w.channel, 
+       SUM(o.amt_usd) total_usd,
+       COUNT(o.occurred_at) times_sales
+       MAX(o.occurred_at) latest_sales
+       MIN(o.occurred_at) earliest_sales
+       MEAN(o.amt_usd) mean_sales
+FROM account a
+JOIN web_event w
+ON a.id = w.account_id
+JOIN orders o 
+ON a.id = o.account_id
+WHERE a.name = '%mart%' 
+GROUP BY a.name, w.channel
+ORDER BY total_usd DESC;
+
