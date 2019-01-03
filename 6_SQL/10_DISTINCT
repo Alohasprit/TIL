@@ -1,0 +1,6 @@
+DISTINCT는 aggregator로서 SELECT 명령어에 clause로 쓰인다.
+DISTINCT는 컬럼의 row별 unique한 값을 호출해 준다.
+여러 컬럼을 지정할 경우 여러 컬럼의 row별 동일한 값을 제외한 값을 return 해준다.
+
+SELECT DITINCT a.name, a.id
+FROM account a;
