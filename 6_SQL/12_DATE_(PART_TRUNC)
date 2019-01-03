@@ -1,0 +1,12 @@
+DATE 컬럼 값을 parsing 할때 쓰는 명령어로 DATE_PART와 DATE_TRUNC로 구성됨
+
+1. DATE_PART는 date data에서 year, month, day, dow, sub 조건 명령어와 함께 SELECT 명령어 안에서 쓰인다.
+
+SELECT DATE_PART('year', occurred_at) sales_year, SUM(total) total_sales
+FROM orders
+GROUP BY 1
+ORDER BY 2;
+
+--> 2012(year) / 12(month) / 23(day) / 2(dow/수)
+
+2. DATE_TRUNC는 year, month, day, dow, sub 조건 명령어에 따라 결과 값이 DATE_PART와 달리 조건 명령어 이후 값을 버린 DATE 값이 호출된다.
