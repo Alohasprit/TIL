@@ -1,0 +1,11 @@
+HAVING 명령어는 GROUP BY 이후 aggregated된 테이블에서 필터 조건을 줄 때 쓰인다.
+WHERE 명령어와 혼란스러울 수 있으나, WHERE의 경우는 GROUP BY 이전에 필터 조건으로 사용되며
+HAVING은 GROUP BY 이후에 쓰인다는 차이가 있다.
+
+
+SELECT a.id, COUNT(*), SUM(a.order)
+FROM account a
+WHERE a.order > 10
+GROUP BY a.id
+HAVING COUNT(*) >10
+ORDER BY 2;
