@@ -4,7 +4,7 @@
   - ()로 묶어 해당 테이블에 축약어를 사용해야 한다.
 
 
-SELECT a.channel, AVG(a.count)
+SELECT sub_table_1.channel, AVG(count)
 FROM (
   SELECT DATE_TRUNC('day',occurred_at) AS event_day, channel, COUNT(*)
   FROM web_events
