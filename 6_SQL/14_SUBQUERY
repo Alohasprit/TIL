@@ -1,1 +1,16 @@
+[SUBQUERY]
+  - 현재 존재하는 테이블 만으로 원하는 데이터를 추출하기 어려울때 1차적으로 만들어진 테이블을 기반으로 추가 데이터를 추출할 때 이용함
+  - FROM statement에 SELECT 구문을 시작으로 1차 테이블을 두고 
+  - ()로 묶어 해당 테이블에 축약어를 사용해야 한다.
 
+
+SELECT a.channel, AVG(a.count)
+FROM (
+  SELECT DATE_TRUNC('day',occurred_at) AS event_day, channel, COUNT(*)
+  FROM web_events
+  GROUP BY 1, 2
+  ORDER BY 3 DESC
+     ) AS sub_table_1
+
+GROUP BY 1
+ORDER BY 2 DESC;
