@@ -1,0 +1,27 @@
+SUBQUERY는 FROM 절에 테이블을을 지정하는 subquery로 들어갈 수 있을 뿐만 아니라, 
+조건 절인 WHERE, HAVING, 심지어 CASE 절에 조건 value로 들어갈 수도 있다.
+단, FROM에서 테이블로 subquery로 들어갈때와 달리 축약이 불가능하다.
+
+SELECT t3.rep_name, t3.region_name, t3.total_amt
+FROM(SELECT region_name, MAX(total_amt) total_amt
+     FROM(SELECT s.name rep_name, r.name region_name, SUM(o.total_amt_usd) total_amt
+             FROM sales_reps s
+             JOIN accounts a
+             ON a.sales_rep_id = s.id
+             JOIN orders o
+             ON o.account_id = a.id
+             JOIN region r
+             ON r.id = s.region_id
+             GROUP BY 1, 2) t1
+     GROUP BY 1) t2
+JOIN (SELECT s.name rep_name, r.name region_name, SUM(o.total_amt_usd) total_amt
+     FROM sales_reps s
+     JOIN accounts a
+     ON a.sales_rep_id = s.id
+     JOIN orders o
+     ON o.account_id = a.id
+     JOIN region r
+     ON r.id = s.region_id
+     GROUP BY 1,2
+     ORDER BY 3 DESC) t3
+ON t3.region_name = t2.region_name AND t3.total_amt = t2.total_amt;
