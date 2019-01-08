@@ -13,6 +13,6 @@ WITH t1 AS (
   FROM accounts)
 
 SELECT first_name, last_name, 
-CONCAT(first_name, '.', last_name, '@', name, '.com'), 
-LEFT(LOWER(first_name), 1) || RIGHT(LOWER(first_name), 1) || LEFT(LOWER(last_name), 1) || RIGHT(LOWER(last_name), 1) || LENGTH(first_name) || LENGTH(last_name) || REPLACE(UPPER(name), ' ', '')
+CONCAT(first_name, '.', last_name, '@', name, '.com') e-mail, 
+LEFT(LOWER(first_name), 1) || RIGHT(LOWER(first_name), 1) || LEFT(LOWER(last_name), 1) || RIGHT(LOWER(last_name), 1) || LENGTH(first_name) || LENGTH(last_name) || REPLACE(UPPER(name), ' ', '') SN
 FROM t1;
