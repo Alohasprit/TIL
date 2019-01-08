@@ -1,4 +1,4 @@
-컬럼별 값을 붙여 새로운 컬럼을 만들때 사용
+SELCET 명령어 내에서 컬럼별 값을 붙여 새로운 컬럼을 만들때 사용
   - CONCAT(first_name.' ',last_name) 또는 
   - piping(||)을 사용하여 first_name || ' ' || last_name 으로도 붙임
 
