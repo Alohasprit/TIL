@@ -1,1 +1,15 @@
+해당 명령어는 SELECT 명령어 내에서 컬럼 값을 자르고, 대.소문자화, 특정 문자의 위치를 찾는 역할을 한다.
 
+1. LEFT(컬럼명, 왼쪽에서 부터 자를 자릿 수)
+2. RIGHT(컬럼명, 오른쪽에서 부터 자를 자릿 수)
+3. LENGTH(컬럼명)
+4. POSITION(찾고자 하는 캐릭터 IN 컬러명)
+5. UPPER(대문자로 변경하고 픈 컬럼명)
+5. LOWER(문자로 변경하고 픈 컬럼명)
+
+
+
+SELECT 
+LEFT(primary_poc, POSITION(' ' IN primary_poc)) AS first_name,
+RIGHT(primary_poc, LENGTH(primary_poc) - POSITION(' ' IN primary_poc)) AS last_name
+FROM accounts;
