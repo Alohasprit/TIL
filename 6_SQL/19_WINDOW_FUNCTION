@@ -1,0 +1,65 @@
+1 example(numbering, aggregation)
+
+SELECT 
+    standard_amt_usd, 
+    DATE_PART('month', occurred_at) AS month,
+    
+    #number 명령어
+    ROW_NUMBER() OVER (PARTITION BY DATE_PART('month', occurred_at) ORDER BY occurred_at) AS row_number,
+    DENSE_RANK() OVER (PARTITION BY DATE_PART('month', occurred_at) ORDER BY occurred_at) AS dense_rank,
+    RANK() OVER (PARTITION BY DATE_PART('month', occurred_at) ORDER BY occurred_at) AS rank,
+    
+    #aggregation 명령어
+    SUM(standard_amt_usd) OVER (PARTITION BY DATE_PART('month', occurred_at) ORDER BY occurred_at) AS sum_total,
+    AVG(standard_amt_usd) OVER (PARTITION BY DATE_PART('month', occurred_at) ORDER BY occurred_at) AS avg_total,
+    COUNT(standard_amt_usd) OVER (PARTITION BY DATE_PART('month', occurred_at) ORDER BY occurred_at) AS count_total,
+    MIN(standard_amt_usd) OVER (PARTITION BY DATE_PART('month', occurred_at) ORDER BY occurred_at) AS min_total,
+    MAX(standard_amt_usd) OVER (PARTITION BY DATE_PART('month', occurred_at) ORDER BY occurred_at) AS max_total,
+    
+FROM orders;
+
+
+2. example(Aliases)
+
+SELECT id,
+       account_id,
+       DATE_TRUNC('year',occurred_at) AS year,
+       DENSE_RANK() OVER account_year_window AS dense_rank,
+       total_amt_usd,
+       SUM(total_amt_usd) OVER account_year_window AS sum_total_amt_usd,
+       COUNT(total_amt_usd) OVER account_year_window AS count_total_amt_usd,
+       AVG(total_amt_usd) OVER account_year_window AS avg_total_amt_usd,
+       MIN(total_amt_usd) OVER account_year_window AS min_total_amt_usd,
+       MAX(total_amt_usd) OVER account_year_window AS max_total_amt_usd
+FROM orders 
+WINDOW account_year_window AS (PARTITION BY account_id ORDER BY DATE_TRUNC('year',occurred_at))
+
+
+
+3. example(LAG, LEAD)
+SELECT occurred_at,
+       total_amt_usd,
+       LAG(total_amt_usd) OVER (ORDER BY occurred_at) AS lead,
+       #순서상 이전 row 값을 lead 컬럼 값에 넣음
+       LEAD(total_amt_usd) OVER (ORDER BY occurred_at) - total_amt_usd AS lead_difference
+       #순서상 이후 row 값을 lead 컬럼 값에 넣음
+FROM (
+       SELECT occurred_at,
+       SUM(total_amt_usd) AS total_amt_usd
+       FROM orders 
+       GROUP BY 1) sub
+       
+       
+       
+ 4. example(ENTILE)
+ SELECT
+       account_id,
+       occurred_at,
+       total_amt_usd,
+       
+       #NTILE(N <= 전체 나눔 순위)
+       NTILE(2) OVER (PARTITION BY account_id ORDER BY total_amt_usd) AS total_percentile
+       NTILE(10) OVER (PARTITION BY account_id ORDER BY total_amt_usd) AS total_percentile
+       NTILE(100) OVER (PARTITION BY account_id ORDER BY total_amt_usd) AS total_percentile
+  FROM orders 
+ ORDER BY account_id DESC
