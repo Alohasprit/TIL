@@ -15,4 +15,5 @@ COALESCE(o.poster_amt_usd,0) poster_amt_usd,
 COALESCE(o.total_amt_usd,0) total_amt_usd
 FROM accounts a
 LEFT JOIN orders o
-ON a.id = o.account_id;
+ON a.id = o.account_id
+;
