@@ -1,0 +1,28 @@
+다른 테이블에서 불러온 값을 하나로 합쳐서 보여줄때 사용함
+- 대응하는 필드의 이름이 같아야 한다. 같지 않다면 AS를 사용하여 같게 만든다.
+- 대응되는 각 필드의 타입이 같아야 한다.
+
+1. 중복되지 않는 유일한 정보만 추출하는 경우
+
+SELECT u_name, u_email 
+FROM membership
+UNION
+SELECT letter_name AS u_name, letter_email AS u_email 
+FROM newsletter
+
+-> 이렇게 쿼리를 하면 이름(u_name)과 이메일(user_email)이 같은 경우, 
+하나의 값 만 추출하여 distinct 함수의 같은 효과를 준다.
+
+
+
+2. 중복되더라도 모든 값을 추출하는 경우
+
+SELECT u_name, u_email 
+FROM membership
+
+UNION ALL
+
+SELECT letter_name AS u_name, letter_email AS u_email 
+FROM newsletter
+
+-> 이렇게 쿼리를 하면 이름(u_name)과 이메일(user_email)이 같은 경우, 모든 값을 출력해 
