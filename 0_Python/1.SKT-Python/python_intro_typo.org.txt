@@ -1,0 +1,15 @@
+* CH1
+  - long type은 python3에 존재하지 않음
+
+* CH8
+  - print에 개행문자(newline)을 삽입 하지 않으려면 end=''를 하면 된다.
+  - range 함수는 range object를 반환한다.
+
+* CH11
+  - '2007, 140, 200'.split(',') # Comma-separated values (CSV)
+
+* CH12
+  - Python2의 xrange는 Python3의 range로 교체되었다.
+
+* CH18
+  - Python3에서 __init__.py는 필수가 아니다.
