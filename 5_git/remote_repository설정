@@ -1,0 +1,6 @@
+1.remote 삭제
+git remote remove origin
+
+2.remote 추가
+추가할 폴더로 이동
+git remote add origin https://github.com/Alohasprit/리퍼지토리 명
