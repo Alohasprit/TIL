@@ -18,5 +18,8 @@
   - 컬럼 값의 갯수를 산정 함
   - NULL 값은 산정 제외
   
+5. 특정 컬럼의 Unique 한 값만 count를 원할 경우
+   COUNT(DISTINCT 컬러명)
+  
   
   
