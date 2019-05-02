@@ -3,7 +3,9 @@ WHERE 명령어(Statement)에서 조건 절(Clause)를 연결 또는 논리적 c
 1. LIKE:
    - 주로 WHERE 조건에서 비슷한 문구나 숫자가 포함된 값을 필터링 조건으로 주는 operator
    - %와 함께 주로 쓰여지며, %는 모두 all을 의미한다.
-   
+   - like를 여러개 쓸때는 WHERE (name LIKE '%홍%' OR name LIKE '%김%' OR name LIKE '%서%') 요런식으로 갈호를 
+
+
    ex. 
     1) WHERE name LIKE '%abc%'
        : name 컬럼의 값 중에서 abc 문자가 포함된 값만 필터
