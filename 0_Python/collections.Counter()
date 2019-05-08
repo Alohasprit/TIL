@@ -1,0 +1,40 @@
+word_list=[i for j in list_of_genres for i in j]
+Counter(word_list).most_common()
+
+[('Drama', 1531),
+ ('Comedy', 1028),
+ ('Thriller', 789),
+ ('Action', 741),
+ ('Romance', 571),
+ ('Crime', 469),
+ ('Adventure', 439),
+ ('Horror', 301),
+ ('Science Fiction', 290),
+ ('Family', 260),
+ ('Fantasy', 232),
+ ('Mystery', 225),
+ ('Animation', 141),
+ ('History', 132),
+ ('Music', 100),
+ ('War', 100),
+ ('Documentary', 87),
+ ('Western', 43),
+ ('Foreign', 31),
+ ('TV Movie', 1)]
+ 
+ 
+ lst = ['aa', 'cc', 'dd', 'aa', 'bb', 'ee']의 요소 개수를 collections.Counter()를 이용하여 구할 수 있다. 
+ 출력 결과는 Dictionary형태로 반환하여 준다.
+
+# collections.Counter 예제 (1)
+# list를 입력값으로 함
+
+import collections
+
+lst = ['aa', 'cc', 'dd', 'aa', 'bb', 'ee']
+print(collections.Counter(lst))
+
+'''
+결과
+Counter({'aa': 2, 'cc': 1, 'dd': 1, 'bb': 1, 'ee': 1})
+'''
