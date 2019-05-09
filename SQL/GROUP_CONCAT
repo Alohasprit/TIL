@@ -1,0 +1,16 @@
+여러개의 컬럼값을 하나의 cell에서 보기 위해서
+
+[MySQL]
+
+SELECT DISTINCT profile_id, GROUP_CONCAT(DISTINCT friend_id ORDER BY friend_id) friend_id_list 
+FROM friend 
+GROUP BY profile_id 
+ORDER BY profile_id
+
+
+[Hive]
+
+SELECT GROUP_COL CONCAT_WS('|', COLLECT_SET(CONCAT_COL))
+FROM TABLE_NAME
+GROUP BY GROUP_COL
+
