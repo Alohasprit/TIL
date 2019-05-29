@@ -11,6 +11,11 @@ FROM orders
 GROUP BY 1;
 
 
+
+#하나의 컬럼에 CASE 조건이 여러가지일 경우 
+CASE WHEN 컬럼명 조건 THEN 결과값 #1 WHEN 컬럼명 조건 THEN 결과값#2
+
+
 2. CASE & AGGREGATION
 - GROUP BY의 기준에 따라서 그리고 AGGREGATION clause 포함에 따라서 결과 값은 달리 호출 된다.
 
