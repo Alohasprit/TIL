@@ -6,6 +6,18 @@
     SELECT id, account_id, total_amount_usd
     FROM orders
     LIMIT 50;
+    
+    
+    
+ 1-1 Offset:
+    - limit으로 상위 몇 row만 자르는 것이 아닌, 
+      특정번째 record로 부터 몇개를 자를 것인지 지정하는 명령어
+      
+      ex.
+       SELECT id, account_id, total_amount_usd
+       FROM orders
+       LIMIT 50 Offset 10;
+       -> 11번째 row 부터 50개의 record를 조회함
    
  2. ORDER BY:
     - 불러온 데이터의 컬럼별 sorting 조건(내림/오름) 차순 조건을 지정할 수 있음
