@@ -1,0 +1,59 @@
+# 민감한 개인 키 파일들
+credentials.json
+config.json
+*.log
+*.pid
+
+# 환경 설정 파일들
+.env
+.env.local
+.env.production
+
+# Python 캐시 파일들
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 가상환경
+venv/
+env/
+ENV/
+
+# IDE 설정 파일들
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS 시스템 파일들
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 로그 파일들
+*.log
+logs/
+
+# 임시 파일들
+*.tmp
+*.temp
+temp/
+
+# 백업 파일들
+*.bak
+*.backup
+*~
+
+# 테스트 파일들 (선택적)
+test_*.py
+*_test.py
+
+# 설정 파일들 (민감한 정보 포함)
+config_*.json
+*_config.json
+secrets.json
