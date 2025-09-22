@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Stock Updater",
+  "version": "1.0",
+  "description": "Google Sheets 열기 시 주식 데이터 자동 업데이트",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://docs.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/spreadsheets/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Stock Updater"
+  }
+}

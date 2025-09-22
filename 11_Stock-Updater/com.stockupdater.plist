@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.stockupdater</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/hoyounson/Desktop/workspace/TIL/11_Stock-Updater/stock_updater.py</string>
+    </array>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/hoyounson/Desktop/workspace/TIL/11_Stock-Updater</string>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <true/>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/hoyounson/Desktop/workspace/TIL/11_Stock-Updater/stock_updater_output.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/hoyounson/Desktop/workspace/TIL/11_Stock-Updater/stock_updater_error.log</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+</dict>
+</plist>
