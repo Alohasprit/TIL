@@ -1,0 +1,30 @@
+# 주식 DCF 분석기 필요한 라이브러리
+
+# 데이터 수집
+yfinance>=0.2.0
+requests>=2.31.0
+beautifulsoup4>=4.11.0
+
+# 데이터 처리
+pandas>=1.5.0
+numpy>=1.24.0
+
+# 시각화
+matplotlib>=3.6.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# Google Sheets API
+google-api-python-client>=2.0.0
+google-auth>=2.0.0
+google-auth-oauthlib>=0.5.0
+google-auth-httplib2>=0.1.0
+
+# 웹 스크래핑
+selenium>=4.10.0
+webdriver-manager>=3.8.0
+
+# 유틸리티
+python-dateutil>=2.8.0
+pytz>=2023.3
+

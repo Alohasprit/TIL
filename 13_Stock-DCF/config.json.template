@@ -1,0 +1,46 @@
+{
+  "api_keys": {
+    "alpha_vantage": "YOUR_ALPHA_VANTAGE_API_KEY",
+    "finnhub": "YOUR_FINNHUB_API_KEY",
+    "polygon": "YOUR_POLYGON_API_KEY"
+  },
+  "korean_investment": {
+    "app_key": "YOUR_KOREAN_INVESTMENT_APP_KEY",
+    "app_secret": "YOUR_KOREAN_INVESTMENT_APP_SECRET",
+    "account_number": "YOUR_ACCOUNT_NUMBER"
+  },
+  "dcf_settings": {
+    "discount_rate": 0.10,
+    "terminal_growth_rate": 0.03,
+    "forecast_years": 5,
+    "risk_free_rate": 0.04,
+    "market_risk_premium": 0.06
+  },
+  "stocks": {
+    "us_stocks": [
+      "AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "NVDA", "META", "NFLX",
+      "AMD", "INTC", "CRM", "ADBE", "PYPL", "UBER", "SQ", "ZM"
+    ],
+    "kr_stocks": [
+      "005930", "000660", "035420", "207940", "006400", "035720", 
+      "051910", "068270", "323410", "005380", "000270", "012330",
+      "066570", "003550", "017670", "036570"
+    ]
+  },
+  "securities_firms": {
+    "us_firms": [
+      "JP Morgan", "Goldman Sachs", "Morgan Stanley", "Bank of America",
+      "Wells Fargo", "Citigroup", "Deutsche Bank", "Credit Suisse"
+    ],
+    "kr_firms": [
+      "삼성증권", "KB증권", "NH투자증권", "키움증권", "한국투자증권",
+      "대신증권", "미래에셋증권", "신한투자증권"
+    ]
+  },
+  "output": {
+    "excel_file_path": "stock_dcf_analysis.xlsx",
+    "google_sheets_id": "YOUR_GOOGLE_SHEETS_ID",
+    "update_frequency": "daily"
+  }
+}
+
